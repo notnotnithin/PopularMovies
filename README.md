@@ -9,11 +9,11 @@ Features Included:
 5. Support for 7" and 10" tablets.
 
 Libraries Used:
-Picasso
-ButterKnife
-Volley
-OKHttp
-GSon
+1. Picasso
+2. ButterKnife
+3. Volley
+4. OKHttp
+5. GSon
 
 Screenshots:
 
