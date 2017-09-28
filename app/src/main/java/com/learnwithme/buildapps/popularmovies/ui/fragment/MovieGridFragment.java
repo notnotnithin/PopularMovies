@@ -65,14 +65,14 @@ public class MovieGridFragment extends Fragment implements View.OnClickListener 
 
     private static final String TAG = MovieGridFragment.class.getSimpleName();
     private static final String[] FAV_MOVIE_COLUMNS = {
-        MovieContract.MovieEntry.TABLE_NAME + "." + MovieContract.MovieEntry._ID,
-        MovieContract.MovieEntry.COLUMN_MOVIE_ID,
-        MovieContract.MovieEntry.COLUMN_TITLE,
-        MovieContract.MovieEntry.COLUMN_POSTER_IMAGE,
-        MovieContract.MovieEntry.COLUMN_OVERVIEW,
-        MovieContract.MovieEntry.COLUMN_AVERAGE_RATING,
-        MovieContract.MovieEntry.COLUMN_RELEASE_DATE,
-        MovieContract.MovieEntry.COLUMN_BACKDROP_IMAGE
+            MovieContract.MovieEntry.TABLE_NAME + "." + MovieContract.MovieEntry._ID,
+            MovieContract.MovieEntry.COLUMN_MOVIE_ID,
+            MovieContract.MovieEntry.COLUMN_TITLE,
+            MovieContract.MovieEntry.COLUMN_POSTER_IMAGE,
+            MovieContract.MovieEntry.COLUMN_OVERVIEW,
+            MovieContract.MovieEntry.COLUMN_AVERAGE_RATING,
+            MovieContract.MovieEntry.COLUMN_RELEASE_DATE,
+            MovieContract.MovieEntry.COLUMN_BACKDROP_IMAGE
     };
 
     @BindView(R.id.movie_recycler_view)
@@ -105,53 +105,6 @@ public class MovieGridFragment extends Fragment implements View.OnClickListener 
     private int mPage = 1;
     private MovieActivity mActivity;
     private boolean mTwoPane = false;
-    private APIRequester mMoviesRequester = new APIRequester() {
-        @Override
-        public void onFailure(Throwable error) {
-            if (!isAdded()) {
-                return;
-            }
-
-            mProgressBar.hide();
-            Log.v(TAG, "Failure : movies onFailure");
-
-            mMovieList.clear();
-            mAdapter.notifyDataSetChanged();
-            ConnectionUtils.showSnackbar(mRecyclerView, mServerError);
-            mConnectivityRetryLayout.setVisibility(View.VISIBLE);
-        }
-
-        @Override
-        public void onSuccess(Object respObj) {
-            if (!isAdded()) {
-                return;
-            }
-
-            mProgressBar.hide();
-            if (mConnectivityRetryLayout.getVisibility() == View.VISIBLE) {
-                mConnectivityRetryLayout.setVisibility(View.GONE);
-            }
-            Log.v(TAG, "Success : movies data : " + new Gson().toJson(respObj).toString());
-            MovieResponse response = (MovieResponse) respObj;
-
-            if (response != null && response.getResults() != null && response.getResults().size() > 0) {
-                List<Movie> movieList = response.getResults();
-                for (Movie movie : movieList) {
-                    mMovieList.add(movie);
-                }
-                mAdapter.notifyDataSetChanged();
-
-                if (mTwoPane) {
-                    Log.d(TAG, "Tablet mode as mTwoPane : " + mTwoPane);
-
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelable(MOVIE_DETAIL, mMovieList.get(0));
-
-                    addDetailFragmentForTwoPane(bundle);
-                }
-            }
-        }
-    };
 
     public MovieGridFragment() {
     }
@@ -275,6 +228,54 @@ public class MovieGridFragment extends Fragment implements View.OnClickListener 
             fetchMovies(true);
         }
     }
+
+    private APIRequester mMoviesRequester = new APIRequester() {
+        @Override
+        public void onFailure(Throwable error) {
+            if (!isAdded()) {
+                return;
+            }
+
+            mProgressBar.hide();
+            Log.v(TAG, "Failure : movies onFailure");
+
+            mMovieList.clear();
+            mAdapter.notifyDataSetChanged();
+            ConnectionUtils.showSnackbar(mRecyclerView, mServerError);
+            mConnectivityRetryLayout.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        public void onSuccess(Object respObj) {
+            if (!isAdded()) {
+                return;
+            }
+
+            mProgressBar.hide();
+            if (mConnectivityRetryLayout.getVisibility() == View.VISIBLE) {
+                mConnectivityRetryLayout.setVisibility(View.GONE);
+            }
+            Log.v(TAG, "Success : movies data : " + new Gson().toJson(respObj).toString());
+            MovieResponse response = (MovieResponse) respObj;
+
+            if (response != null && response.getResults() != null && response.getResults().size() > 0) {
+                List<Movie> movieList = response.getResults();
+                for (Movie movie : movieList) {
+                    mMovieList.add(movie);
+                }
+                mAdapter.notifyDataSetChanged();
+
+                if (mTwoPane) {
+                    Log.d(TAG, "Tablet mode as mTwoPane : " + mTwoPane);
+
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable(MOVIE_DETAIL, mMovieList.get(0));
+
+                    addDetailFragmentForTwoPane(bundle);
+                }
+            }
+        }
+    };
 
     private void setActionBarTitle(String movieFilterSort) {
         if (movieFilterSort.equals(Constants.HIGHEST_RATED)) {
