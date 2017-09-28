@@ -1,9 +1,5 @@
 package com.learnwithme.buildapps.popularmovies.model;
 
-/**
- * Created by Nithin on 31/05/2017.
- */
-
 public enum Language {
     LANGUAGE_EN("en"), LANGUAGE_HI("hi");
 

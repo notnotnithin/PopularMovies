@@ -11,10 +11,6 @@ import android.util.Log;
 import com.learnwithme.buildapps.popularmovies.listener.DBUpdationListener;
 import com.learnwithme.buildapps.popularmovies.model.Movie;
 
-/**
- * Created by Nithin on 31/05/2017.
- */
-
 public class FavouriteHelper extends AsyncTask<Void, Void, Void> {
     private static final String TAG = FavouriteHelper.class.getSimpleName();
 

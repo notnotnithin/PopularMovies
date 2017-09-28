@@ -1,9 +1,5 @@
 package com.learnwithme.buildapps.popularmovies.model;
 
-/**
- * Created by Nithin on 15/05/2017.
- */
-
 public class Trailer {
     private String id;
     private String key;

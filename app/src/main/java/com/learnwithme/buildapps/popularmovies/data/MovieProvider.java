@@ -9,10 +9,6 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-/**
- * Created by Nithin on 30/05/2017.
- */
-
 public class MovieProvider extends ContentProvider {
     private static final String TAG = MovieProvider.class.getSimpleName();
 

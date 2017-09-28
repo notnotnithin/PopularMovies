@@ -4,10 +4,6 @@ import android.content.Context;
 
 import com.squareup.picasso.Picasso;
 
-/**
- * Created by Nithin on 15/05/2017.
- */
-
 public class ImageUtils {
     private static Picasso mInstance;
 

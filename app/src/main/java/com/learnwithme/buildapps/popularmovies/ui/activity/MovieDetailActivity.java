@@ -7,10 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import com.learnwithme.buildapps.popularmovies.R;
 import com.learnwithme.buildapps.popularmovies.ui.fragment.MovieDetailFragment;
 
-/**
- * Created by Nithin on 15/05/2017.
- */
-
 public class MovieDetailActivity extends AppCompatActivity {
     public static final String MOVIES_DETAILS_FRAGMENT = "MOVIES_DETAILS_FRAGMENT";
 

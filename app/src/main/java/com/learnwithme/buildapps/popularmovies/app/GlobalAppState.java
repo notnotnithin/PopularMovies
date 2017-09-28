@@ -5,10 +5,6 @@ import android.util.Log;
 
 import com.learnwithme.buildapps.popularmovies.api.APIManager;
 
-/**
- * Created by Nithin on 15/05/2017.
- */
-
 public class GlobalAppState extends Application {
     private static final String TAG = GlobalAppState.class.getSimpleName();
     private APIManager mAPIManager;

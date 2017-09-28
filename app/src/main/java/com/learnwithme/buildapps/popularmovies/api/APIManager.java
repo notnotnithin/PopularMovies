@@ -21,10 +21,6 @@ import org.json.JSONObject;
 
 import java.lang.ref.WeakReference;
 
-/**
- * Created by Nithin on 15/05/2017.
- */
-
 public class APIManager {
     private static final String TAG = APIManager.class.getSimpleName();
     private static APIManager mInstance;

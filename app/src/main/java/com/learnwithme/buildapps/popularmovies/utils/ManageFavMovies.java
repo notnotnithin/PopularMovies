@@ -3,10 +3,6 @@ package com.learnwithme.buildapps.popularmovies.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-/**
- * Created by Nithin on 01/06/2017.
- */
-
 public class ManageFavMovies {
     private static final String PREFERENCE_NAME_FAV_MOVIES = "fav_movies";
     private static ManageFavMovies instance = null;

@@ -10,10 +10,6 @@ import android.util.Log;
 
 import com.learnwithme.buildapps.popularmovies.R;
 
-/**
- * Created by Nithin on 15/05/2017.
- */
-
 public class SettingsActivity extends PreferenceActivity
         implements Preference.OnPreferenceChangeListener {
     private static final String TAG = SettingsActivity.class.getSimpleName();

@@ -1,9 +1,5 @@
 package com.learnwithme.buildapps.popularmovies.utils;
 
-/**
- * Created by Nithin on 15/05/2017.
- */
-
 public class Constants {
     public final static String MOST_POPULAR = "most_popular";
     public final static String HIGHEST_RATED = "highest_rated";

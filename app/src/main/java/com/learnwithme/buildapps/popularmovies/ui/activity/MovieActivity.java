@@ -1,6 +1,5 @@
 package com.learnwithme.buildapps.popularmovies.ui.activity;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -19,7 +18,7 @@ public class MovieActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
 
-        if(savedInstanceState != null) {
+        if (savedInstanceState != null) {
             return;
         } else {
             addGridIntoFragment();
@@ -36,7 +35,7 @@ public class MovieActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if(id == R.id.action_settings) {
+        if (id == R.id.action_settings) {
             Intent settingsActivity = new Intent(this, SettingsActivity.class);
             startActivity(settingsActivity);
             return true;
@@ -45,7 +44,7 @@ public class MovieActivity extends AppCompatActivity {
     }
 
     private void addGridIntoFragment() {
-        if(!isFinishing()) {
+        if (!isFinishing()) {
             MovieGridFragment mMovieGridFragment = MovieGridFragment.newInstance();
 
             FragmentManager mFragmentManager = getSupportFragmentManager();

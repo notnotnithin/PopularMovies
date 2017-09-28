@@ -7,10 +7,6 @@ import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.Toast;
 
-/**
- * Created by Nithin on 15/05/2017.
- */
-
 public class ConnectionUtils {
     public static boolean isNetworkAvailable(Context context) {
         ConnectivityManager mConnectivityManager =

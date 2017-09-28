@@ -6,11 +6,18 @@ import android.os.Parcelable;
 import com.google.gson.annotations.SerializedName;
 import com.learnwithme.buildapps.popularmovies.BuildConfig;
 
-/**
- * Created by Nithin on 15/05/2017.
- */
 public class Movie implements Parcelable {
 
+    public static final Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
+        public Movie createFromParcel(Parcel source) {
+            Movie movie = new Movie(source);
+            return movie;
+        }
+
+        public Movie[] newArray(int size) {
+            return new Movie[size];
+        }
+    };
     @SerializedName("poster_path")
     private String posterPath;
     private boolean adult;
@@ -32,7 +39,8 @@ public class Movie implements Parcelable {
     @SerializedName("vote_average")
     private double voteAverage;
 
-    public Movie(int id, String title, String posterPath, String overview, double voteAverage, String releaseDate, String backdropPath) {
+    public Movie(int id, String title, String posterPath, String overview,
+                 double voteAverage, String releaseDate, String backdropPath) {
         this.id = id;
         this.title = title;
         this.posterPath = posterPath;
@@ -109,17 +117,6 @@ public class Movie implements Parcelable {
     public double getVoteAverage() {
         return voteAverage;
     }
-
-    public static final Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
-        public Movie createFromParcel(Parcel source) {
-            Movie movie = new Movie(source);
-            return movie;
-        }
-
-        public Movie[] newArray(int size) {
-            return new Movie[size];
-        }
-    };
 
     @Override
     public int describeContents() {

@@ -49,10 +49,6 @@ import butterknife.ButterKnife;
 import static com.learnwithme.buildapps.popularmovies.ui.activity.MovieDetailActivity.MOVIES_DETAILS_FRAGMENT;
 import static com.learnwithme.buildapps.popularmovies.utils.Constants.MOVIE_DETAIL;
 
-/**
- * Created by Nithin on 31/05/2017.
- */
-
 public class MovieGridFragment extends Fragment implements View.OnClickListener {
     public static final String SAVE_ALL_MOVIES_LIST = "ALL_MOVIES_LIST";
     public static final String SAVE_MOVIE_FILTER_SORT = "MOVIE_FILTER_SORT";
@@ -69,14 +65,14 @@ public class MovieGridFragment extends Fragment implements View.OnClickListener 
 
     private static final String TAG = MovieGridFragment.class.getSimpleName();
     private static final String[] FAV_MOVIE_COLUMNS = {
-            MovieContract.MovieEntry.TABLE_NAME + "." + MovieContract.MovieEntry._ID,
-            MovieContract.MovieEntry.COLUMN_MOVIE_ID,
-            MovieContract.MovieEntry.COLUMN_TITLE,
-            MovieContract.MovieEntry.COLUMN_POSTER_IMAGE,
-            MovieContract.MovieEntry.COLUMN_OVERVIEW,
-            MovieContract.MovieEntry.COLUMN_AVERAGE_RATING,
-            MovieContract.MovieEntry.COLUMN_RELEASE_DATE,
-            MovieContract.MovieEntry.COLUMN_BACKDROP_IMAGE
+        MovieContract.MovieEntry.TABLE_NAME + "." + MovieContract.MovieEntry._ID,
+        MovieContract.MovieEntry.COLUMN_MOVIE_ID,
+        MovieContract.MovieEntry.COLUMN_TITLE,
+        MovieContract.MovieEntry.COLUMN_POSTER_IMAGE,
+        MovieContract.MovieEntry.COLUMN_OVERVIEW,
+        MovieContract.MovieEntry.COLUMN_AVERAGE_RATING,
+        MovieContract.MovieEntry.COLUMN_RELEASE_DATE,
+        MovieContract.MovieEntry.COLUMN_BACKDROP_IMAGE
     };
 
     @BindView(R.id.movie_recycler_view)
@@ -234,7 +230,8 @@ public class MovieGridFragment extends Fragment implements View.OnClickListener 
                     int visibleItemCount = recyclerView.getChildCount();
                     int totalItemCount = recyclerView.getLayoutManager().getItemCount();
                     int pastVisibleItem =
-                            ((GridLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
+                            ((GridLayoutManager) recyclerView.getLayoutManager())
+                                    .findFirstVisibleItemPosition();
                     if ((visibleItemCount + pastVisibleItem) >= totalItemCount) {
                         if (!mMovieFilterSort.equals(Constants.FAVORITE)) {
 
@@ -256,6 +253,15 @@ public class MovieGridFragment extends Fragment implements View.OnClickListener 
             }
         });
         return view;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (mMovieList != null && !mMovieList.isEmpty()) {
+            outState.putParcelableArrayList(SAVE_ALL_MOVIES_LIST, mMovieList);
+        }
+        outState.putString(SAVE_MOVIE_FILTER_SORT, mMovieFilterSort);
     }
 
     @Override
@@ -334,15 +340,6 @@ public class MovieGridFragment extends Fragment implements View.OnClickListener 
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        if (mMovieList != null && !mMovieList.isEmpty()) {
-            outState.putParcelableArrayList(SAVE_ALL_MOVIES_LIST, mMovieList);
-        }
-        outState.putString(SAVE_MOVIE_FILTER_SORT, mMovieFilterSort);
     }
 
     private class LoadFavoriteMoviesTask extends AsyncTask<Void, Integer, Integer> {

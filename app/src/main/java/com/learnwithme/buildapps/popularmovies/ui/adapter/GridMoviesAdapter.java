@@ -29,10 +29,6 @@ import butterknife.ButterKnife;
 import static com.learnwithme.buildapps.popularmovies.ui.activity.MovieDetailActivity.MOVIES_DETAILS_FRAGMENT;
 import static com.learnwithme.buildapps.popularmovies.utils.Constants.MOVIE_DETAIL;
 
-/**
- * Created by Nithin on 15/05/2017.
- */
-
 public class GridMoviesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static Context mContext;
     private static List<Movie> mMoviesList;

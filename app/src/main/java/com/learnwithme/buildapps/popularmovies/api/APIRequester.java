@@ -1,10 +1,6 @@
 package com.learnwithme.buildapps.popularmovies.api;
 
 /**
- * Created by Nithin on 15/05/2017.
- */
-
-/**
  * This interface should be implemented by clients that ask for Data from {@code APIManager}
  */
 public interface APIRequester {

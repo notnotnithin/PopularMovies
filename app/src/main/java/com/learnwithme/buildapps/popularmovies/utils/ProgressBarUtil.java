@@ -8,10 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
-/**
- * Created by Nithin on 16/05/2017.
- */
-
 public class ProgressBarUtil {
     private final RelativeLayout mRelativeLayout;
 

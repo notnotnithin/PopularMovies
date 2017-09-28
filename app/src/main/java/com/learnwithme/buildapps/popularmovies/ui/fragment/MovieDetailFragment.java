@@ -63,10 +63,6 @@ import butterknife.ButterKnife;
 import static com.learnwithme.buildapps.popularmovies.data.FavouriteHelper.ADD_TO_FAVORITE;
 import static com.learnwithme.buildapps.popularmovies.utils.Constants.MOVIE_DETAIL;
 
-/**
- * Created by Nithin on 01/06/2017.
- */
-
 public class MovieDetailFragment extends Fragment implements View.OnClickListener, DBUpdationListener {
     private static final String TAG = MovieActivity.class.getSimpleName();
 
@@ -238,7 +234,7 @@ public class MovieDetailFragment extends Fragment implements View.OnClickListene
         mProgressBar = new ProgressBarUtil(mActivity);
 
         AppCompatActivity activity = (AppCompatActivity) mActivity;
-        activity.setSupportActionBar(mToolbar);
+        // activity.setSupportActionBar(mToolbar);
         if (activity.getSupportActionBar() != null) {
             activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }

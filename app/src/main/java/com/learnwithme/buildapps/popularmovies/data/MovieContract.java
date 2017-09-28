@@ -1,9 +1,5 @@
 package com.learnwithme.buildapps.popularmovies.data;
 
-/**
- * Created by Nithin on 29/05/2017.
- */
-
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.net.Uri;

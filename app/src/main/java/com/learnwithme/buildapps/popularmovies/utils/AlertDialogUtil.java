@@ -8,10 +8,6 @@ import android.util.Log;
 
 import java.util.Arrays;
 
-/**
- * Created by Nithin on 01/06/2017.
- */
-
 public class AlertDialogUtil {
     private static final String LOG_TAG = AlertDialogUtil.class.getSimpleName();
 
